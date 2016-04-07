@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Home Page</title>
+        <script type="text/javascript" src="./assets/vendors/angular.min.js"></script>
+        <script type="text/javascript" src="./assets/vendors/angular-route.min.js"></script>
+        <script type="text/javascript" src="./assets/scripts/client.js"></script>
+        <script type="text/javascript" src="./assets/scripts/controllers.js"></script>
+        <script type="text/javascript" src="./assets/scripts/factories.js"></script>
+  </head>
+  <body>
+    <p>
+      Page Loaded! YAY!
+    </p>
+
+    <form action="/" method="post">
+        <label for="username">USERNAME: </label>
+        <input type="text" name="username" id="username" />
+        <label for="password">PASSWORD: </label>
+        <input type="text" name="password" id="password" />
+        <input type="submit" value="Login" />
+    </form>
+
+    <a href="/register">REGISTER</a>
+
+    <ul>
+      <li role="presentation"><a href="#home">Home</a></li>
+      <li role="presentation"><a href="#userInfoAdd">Add</a></li>
+      <li role="presentation"><a href="#view">View</a></li>
+    </ul>
+
+    <main ng-view>
+
+    </main>
+
+  </body>
+</html>
