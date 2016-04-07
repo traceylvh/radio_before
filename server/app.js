@@ -17,6 +17,8 @@ var index = require("./routes/index");
 var register = require("./routes/register");
 var user = require("./routes/user");
 var userInfo = require("./routes/userInfo");
+// var nightfall = require("./routes/nightfall");
+
 
 app.use(session({
     secret: "secret",
@@ -81,6 +83,7 @@ passport.use("local", new localStrategy({
 app.use("/register", register);
 app.use("/user", user);
 app.use("/userInfo", userInfo);
+// app.use("/nightfall", nightfall);
 app.use("/", index);
 
 app.set("port", (process.env.PORT || 5000));
