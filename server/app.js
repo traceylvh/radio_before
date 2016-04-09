@@ -24,7 +24,9 @@ app.use(session({
     secret: "secret",
     key: "user",
     resave: true,
-    s: false,
+    //is this where saveUninitialized goes?
+    // s: false,
+    saveUninitialized: false,
     cookie: {maxAge: 60000, secure: false}
 }));
 

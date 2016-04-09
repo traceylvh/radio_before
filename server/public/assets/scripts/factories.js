@@ -1,6 +1,3 @@
-
-
-
 myApp.factory("HeroService", ["$http", function($http){
     var heroData = {};
 
@@ -25,10 +22,18 @@ myApp.factory("HeroService", ["$http", function($http){
       });
     };
 
+    var openEpisode = function(data){
+      console.log("url/" + data.name);
+      // $http.delete("/userInfo/" + data).then(function(response){
+      //   getData();
+      // });
+    };
+
     return {
       postData: postData,
       getData: getData,
       heroData: heroData,
-      deleteData: deleteData
+      deleteData: deleteData,
+      openEpisode: openEpisode
     };
 }]);

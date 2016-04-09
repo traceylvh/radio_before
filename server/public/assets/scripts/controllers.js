@@ -1,16 +1,41 @@
-myApp.controller("NightfallController", ["$scope", "$http", function($scope, $http){
+myApp.controller("NightfallController", ["$scope", "HeroService", "$http", "$location",
+function($scope, HeroService, $http, $location){
+
+  var heroService = HeroService;
 
   $scope.nightfallArray = [];
 
 $scope.getNightfall = function() {
   $http.get('/nightfall').then(function(response){
     var results = response.data;
-    console.log('*** RESULTS: ', results);
+    // console.log('*** RESULTS: ', results);
     $scope.nightfallArray = results;
+
+    // //get data from button clicked on nightfall page
+    $scope.openEpisode = function(data){
+      console.log("url/" + data.name);
+      // var epName = data.name;
+      // $scope.data = data;
+      // console.log($scope.data);
+
+      //redirect to audioplayer
+      if(data.name !== null){
+        $location.path("/audioplayer");
+      };
+
+
+    };
+
   });
 }
 
+
 $scope.getNightfall();
+
+//this function is for audioplayer
+audiojs.events.ready(function() {
+    var as = audiojs.createAll();
+});
 
 
 }]);

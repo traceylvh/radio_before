@@ -8,7 +8,7 @@ var nightfall = require("../public/assets/shows/nightfall.json");
 //trying to get nightfall data from json file
 router.get('/nightfall', function(req, res) {
   var nightfallArray = nightfall.files;
-    console.log("from index.js: ", nightfallArray);
+    // console.log("from index.js: ", nightfallArray);
     res.send(nightfallArray);
 });
 

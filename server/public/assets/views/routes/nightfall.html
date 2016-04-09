@@ -1,5 +1,5 @@
 <h3>NNNNightfall!</h3>
-  <div ng-repeat="item in nightfallArray">
+  <div ng-repeat="item in nightfallArray | orderBy: 'title' ">
     <div >
       <h4>
           {{ item.title }}
@@ -8,6 +8,9 @@
       <p>
           {{ item.description }}
       </p>
+
+<button ng-click="openEpisode(item)">play</button>
+<a href="#audioplayer">audio player</a>
 
     </div>
 
