@@ -1,0 +1,17 @@
+<h3>V Point</h3>
+  <div ng-repeat="item in vpointArray | orderBy: 'title' ">
+    <div >
+      <h4>
+          {{ item.title }}
+      </h4>
+
+      <p>
+          {{ item.description }}
+      </p>
+
+<button ng-click="saveFavorite(item)">favorite</button>
+<button ng-click="openEpisode(item)">play</button>
+
+    </div>
+
+  </div>

@@ -4,6 +4,7 @@ function($scope, HeroService, $http, $location){
   var heroService = HeroService;
 
   $scope.nightfallArray = [];
+  // $scope.vpointArray = [];
   $scope.epName = "";
   $scope.favoritesArray = [];
 
@@ -17,6 +18,18 @@ $scope.getNightfall = function() {
 };
 
 $scope.getNightfall();
+
+
+$scope.getVpoint = function() {
+  $http.get('/vpoint').then(function(response){
+    var results = response.data;
+    // console.log('*** RESULTS: ', results);
+    $scope.vpointArray = results;
+
+  });
+};
+
+$scope.getVpoint();
 
 //get data from button clicked on nightfall page
 $scope.openEpisode = function(data){
@@ -49,7 +62,7 @@ $scope.saveFavorite = function(data){
 $scope.addFavorite = function() {
   $http.get('/favorites').then(function(response){
     var results = response.data;
-    console.log('*** RESULTS: ', results);
+    // console.log('*** RESULTS: ', results);
     $scope.favoritesArray = results;
   });
 };

@@ -17,6 +17,10 @@ myApp.config(["$routeProvider", function($routeProvider){
           templateUrl: "/assets/views/routes/nightfall.html",
           controller: "NightfallController"
       })
+      .when("/vpoint", {
+          templateUrl: "/assets/views/routes/vpoint.html",
+          controller: "NightfallController"
+      })
       .when("/favorites", {
           templateUrl: "/assets/views/routes/favorites.html",
           controller: "NightfallController"

@@ -3,13 +3,21 @@ var router = express.Router();
 var passport = require("passport");
 var path = require("path");
 var nightfall = require("../public/assets/shows/nightfall.json");
+var vpoint = require("../public/assets/shows/vpoint.json");
 
 
-//trying to get nightfall data from json file
+//get nightfall data from json file
 router.get('/nightfall', function(req, res) {
   var nightfallArray = nightfall.files;
     // console.log("from index.js: ", nightfallArray);
     res.send(nightfallArray);
+});
+
+//get vpoint data from json file
+router.get('/vpoint', function(req, res) {
+  var vpointArray = vpoint.files;
+    // console.log("from index.js: ", vpointArray);
+    res.send(vpointArray);
 });
 
 //write post here
