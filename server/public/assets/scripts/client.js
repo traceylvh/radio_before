@@ -17,6 +17,10 @@ myApp.config(["$routeProvider", function($routeProvider){
           templateUrl: "/assets/views/routes/nightfall.html",
           controller: "NightfallController"
       })
+      .when("/favorites", {
+          templateUrl: "/assets/views/routes/favorites.html",
+          controller: "NightfallController"
+      })
       .when("/audioplayer", {
           templateUrl: "/assets/views/routes/audioplayer.html",
           controller: "NightfallController"
