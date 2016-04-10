@@ -15,19 +15,19 @@ myApp.config(["$routeProvider", function($routeProvider){
       })
       .when("/nightfall", {
           templateUrl: "/assets/views/routes/nightfall.html",
-          controller: "NightfallController"
+          controller: "EpisodeController"
       })
       .when("/vpoint", {
           templateUrl: "/assets/views/routes/vpoint.html",
-          controller: "NightfallController"
+          controller: "EpisodeController"
       })
       .when("/favorites", {
           templateUrl: "/assets/views/routes/favorites.html",
-          controller: "NightfallController"
+          controller: "EpisodeController"
       })
       .when("/audioplayer", {
           templateUrl: "/assets/views/routes/audioplayer.html",
-          controller: "NightfallController"
+          controller: "EpisodeController"
       })
       .otherwise({
           redirectTo: "/home"

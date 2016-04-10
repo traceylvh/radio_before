@@ -1,4 +1,4 @@
-myApp.controller("NightfallController", ["$scope", "HeroService", "$http", "$location",
+myApp.controller("EpisodeController", ["$scope", "HeroService", "$http", "$location",
 function($scope, HeroService, $http, $location){
 
   var heroService = HeroService;
