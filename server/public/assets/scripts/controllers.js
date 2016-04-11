@@ -24,8 +24,8 @@ $scope.audioPage = function(data){
   if(data !== null){
     $location.path("/audioplayer");
     // console.log(data);
-    $scope.epName = data;
-    // console.log($scope.epName, "it works here");
+    // $scope.epName = data;
+    console.log($scope.epName, "it works here");
   };
 };
 
