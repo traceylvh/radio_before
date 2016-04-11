@@ -3,6 +3,30 @@ myApp.factory("HeroService", ["$http", function($http){
     var favoritesData = {};
     var nightfallData = [];
     var vpointData = [];
+    var playEpisode = {};
+
+
+    //get data from button clicked on nightfall page
+    var openEpisode = function(data){
+        console.log(data);
+        playEpisode.epName = data.name;
+        console.log(playEpisode);
+
+      // $scope.epName = data.name;
+      // console.log($scope.epName);
+      //
+      // $scope.audioPage($scope.epName);
+    };
+
+    //redirect to audioplayer
+    // $scope.audioPage = function(data){
+    //   if(data !== null){
+    //     $location.path("/audioplayer");
+    //     // console.log(data);
+    //     // $scope.epName = data;
+    //     console.log($scope.epName, "it works here");
+    //   };
+    // };
 
     var getNightfall = function() {
       $http.get('/nightfall').then(function(response){
@@ -60,6 +84,9 @@ myApp.factory("HeroService", ["$http", function($http){
 
 
     return {
+      openEpisode: openEpisode,
+      playEpisode: playEpisode,
+
       getNightfall: getNightfall,
       nightfallData: nightfallData,
 

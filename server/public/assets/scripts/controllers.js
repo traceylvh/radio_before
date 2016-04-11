@@ -10,22 +10,27 @@ function($scope, HeroService, $http, $location){
   heroService.getVpoint();
   $scope.vpointArray = heroService.vpointData;
 
-//get data from button clicked on nightfall page
-$scope.openEpisode = function(data){
-  // console.log("url ", data);
-  $scope.epName = data.name;
-  console.log($scope.epName);
+  // heroService.openEpisode();
+  // $scope.episodePick = heroService.playEpisode;
 
-  $scope.audioPage($scope.epName);
+$scope.openEpisode = function(data){
+  heroService.openEpisode(data);
+    $scope.episodePick = heroService.playEpisode;
+    console.log("in controller function", $scope.episodePick);
+  // $scope.epName = $scope.episodePick.name;
+  $scope.audioPage($scope.episodePick);
 };
 
-//redirect to audioplayer
+$scope.episodePick = heroService.playEpisode;
+
+// //redirect to audioplayer
 $scope.audioPage = function(data){
+  console.log(data, "in audiopage function");
   if(data !== null){
     $location.path("/audioplayer");
     // console.log(data);
     // $scope.epName = data;
-    console.log($scope.epName, "it works here");
+    console.log($scope.episodePick, "it works here");
   };
 };
 

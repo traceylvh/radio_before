@@ -1,4 +1,21 @@
-/* Dropdown Button */
+.container {
+  width: 100%;
+  margin: auto;
+  background-color: #ccc;
+}
+
+
+.footer {
+    background: red;
+    position: fixed;
+    text-align: center;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 50px;
+}
+
+/* Dropdown Button ==============================================*/
 .dropbtn {
     background-color: #4CAF50;
     color: white;
@@ -39,5 +56,9 @@
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {background-color: #f1f1f1}
 
-/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+/* Show the dropdown menu
+(use JS to add this class to the .dropdown-content container
+when the user clicks on the dropdown button) */
 .show {display:block;}
+
+/* end dropdown button ==============================================*/
