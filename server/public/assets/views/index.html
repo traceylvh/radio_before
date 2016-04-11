@@ -14,9 +14,14 @@
             });
         </script>
 
+        <!-- <link rel="stylesheet" href="./assets/styles/bootstrap.min.css"  /> -->
+        <link rel="stylesheet" href="./assets/styles/style.css" />
+
+        <!-- <script type="text/javascript" src="./assets/vendors/bootstrap.min.js"></script> -->
         <script type="text/javascript" src="./assets/vendors/angular.min.js"></script>
         <script type="text/javascript" src="./assets/vendors/angular-route.min.js"></script>
         <script type="text/javascript" src="./assets/scripts/client.js"></script>
+        <script type="text/javascript" src="./assets/scripts/client_style.js"></script>
         <script type="text/javascript" src="./assets/scripts/controllers.js"></script>
         <script type="text/javascript" src="./assets/scripts/factories.js"></script>
 
@@ -24,10 +29,14 @@
     p { clear: both; }
 </style>
   </head>
+
+
+
   <body>
-    <p>
-      Working home page
-    </p>
+
+<div class="container-fluid col-md-4 col-md-offset-4 main-box">
+
+
 
     <!-- <form action="/" method="post">
         <label for="username">USERNAME: </label>
@@ -39,20 +48,14 @@
 
     <a href="/register">REGISTER</a> -->
 
-    <ul>
-      <li role="presentation"><a href="#home">Home</a></li>
-      <li role="presentation"><a href="#userInfoAdd">Add</a></li>
-      <li role="presentation"><a href="#view">View</a></li>
-      <li role="presentation"><a href="#nightfall">Nightfall</a></li>
-      <li role="presentation"><a href="#vpoint">Vanishing Point</a></li>
-      <li role="presentation"><a href="#favorites">Favorites</a></li>
-      <li role="presentation"><a href="#audioplayer">Audio Player</a></li>
-      <li><a href="/assets/views/login.html">Log In</a></li>
-    </ul>
 
-    <main ng-view>
+    <ng-include src="'/assets/views/partials/header.html'"></ng-include>
+    <main ng-view></main>
+    <ng-include src="'/assets/views/partials/footer.html'"></ng-include>
 
-    </main>
+
+
+    </div>
 
   </body>
 </html>

@@ -1,35 +1,14 @@
+
 myApp.controller("EpisodeController", ["$scope", "HeroService", "$http", "$location",
 function($scope, HeroService, $http, $location){
 
   var heroService = HeroService;
 
-  $scope.nightfallArray = [];
-  // $scope.vpointArray = [];
-  $scope.epName = "";
-  $scope.favoritesArray = [];
+  heroService.getNightfall();
+  $scope.nightfallArray = heroService.nightfallData;
 
-$scope.getNightfall = function() {
-  $http.get('/nightfall').then(function(response){
-    var results = response.data;
-    // console.log('*** RESULTS: ', results);
-    $scope.nightfallArray = results;
-
-  });
-};
-
-$scope.getNightfall();
-
-
-$scope.getVpoint = function() {
-  $http.get('/vpoint').then(function(response){
-    var results = response.data;
-    // console.log('*** RESULTS: ', results);
-    $scope.vpointArray = results;
-
-  });
-};
-
-$scope.getVpoint();
+  heroService.getVpoint();
+  $scope.vpointArray = heroService.vpointData;
 
 //get data from button clicked on nightfall page
 $scope.openEpisode = function(data){
@@ -50,26 +29,19 @@ $scope.audioPage = function(data){
   };
 };
 
-// $scope.addFavorite = function(data){
-//   $scope.favoriteArray.push(data);
-//   console.log($scope.favoriteArray);
-// };
+//updated save fav
+var favObject = {};
 
 $scope.saveFavorite = function(data){
     heroService.postFavData(data);
 }
 
-$scope.addFavorite = function() {
-  $http.get('/favorites').then(function(response){
-    var results = response.data;
-    // console.log('*** RESULTS: ', results);
-    $scope.favoritesArray = results;
-  });
-};
+heroService.getFavData();
 
-$scope.addFavorite();
+$scope.favoritesArray = heroService.favoritesData;
 
-
+//delete favorite
+$scope.deleteData = heroService.deleteData;
 
 //this function is for audioplayer
 audiojs.events.ready(function() {
@@ -97,6 +69,5 @@ myApp.controller("ShowController", ["$scope", "HeroService", function($scope, He
 
     heroService.getData();
     $scope.heroArray = heroService.heroData;
-
     $scope.deleteData = heroService.deleteData;
 }]);

@@ -1,12 +1,32 @@
 myApp.factory("HeroService", ["$http", function($http){
     var heroData = {};
     var favoritesData = {};
+    var nightfallData = [];
+    var vpointData = [];
+
+    var getNightfall = function() {
+      $http.get('/nightfall').then(function(response){
+        // console.log(response.data);
+        nightfallData.allNightfall = response.data;
+        // console.log(nightfallData.allNightfall);
+        // $scope.nightfallArray = results;
+      });
+    };
+
+    var getVpoint = function() {
+      $http.get('/vpoint').then(function(response){
+        // console.log(response.data);
+        vpointData.allVpoint = response.data;
+        // console.log(nightfallData.allNightfall);
+        // $scope.nightfallArray = results;
+      });
+    };
 
     var getData = function(){
         $http.get("/userInfo").then(function(response){
-          console.log(response.data);
+          // console.log(response.data);
           heroData.allHeroes = response.data;
-          console.log(heroData.allHeroes);
+          // console.log(heroData.allHeroes);
         });
     };
 
@@ -19,9 +39,9 @@ myApp.factory("HeroService", ["$http", function($http){
 
     var getFavData = function(){
         $http.get("/favorites").then(function(response){
-          console.log(response.data);
+          // console.log(response.data);
           favoritesData.allFavorites = response.data;
-          console.log(favoritesData.allFavorites);
+          // console.log(favoritesData.allFavorites);
         });
     };
 
@@ -33,19 +53,29 @@ myApp.factory("HeroService", ["$http", function($http){
     };
 
     var deleteData = function(data){
-      $http.delete("/userInfo/" + data).then(function(response){
-        getData();
+      $http.delete("/favorites/" + data).then(function(response){
+        getFavData();
       });
     };
 
 
     return {
+      getNightfall: getNightfall,
+      nightfallData: nightfallData,
+
+      getVpoint: getVpoint,
+      vpointData: vpointData,
+
       postData: postData,
       getData: getData,
+
       postFavData: postFavData,
       getFavData: getFavData,
+
       favoritesData: favoritesData,
+
       heroData: heroData,
+
       deleteData: deleteData,
       // episodeData: episodeData
     };

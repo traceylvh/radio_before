@@ -1,9 +1,13 @@
 <h3>NNNNightfall!</h3>
-  <div ng-repeat="item in nightfallArray | orderBy: 'title' ">
+  <div ng-repeat="item in nightfallArray.allNightfall | orderBy: 'title' ">
     <div >
       <h4>
           {{ item.title }}
       </h4>
+
+      <p>
+        {{ item.length/60 | number:1 }} minutes
+      </p>
 
       <p>
           {{ item.description }}

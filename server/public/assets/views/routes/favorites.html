@@ -1,20 +1,20 @@
 <h3>Favorites</h3>
-  <div ng-repeat="item in favoritesArray">
-    <div >
-      <h4>
-          {{ item.title }}
-      </h4>
+<div ng-repeat="item in favoritesArray.allFavorites | orderBy: 'title' ">
+  <div >
+    <h4>
+      {{ item.title }}
+    </h4>
 
-      <p>
-          {{ item.length }}
-      </p>
+    <p>
+      {{ item.length/60 | number:1 }} minutes
+    </p>
 
-      <p>
-          {{ item.description }}
-      </p>
+    <p>
+      {{ item.description }}
+    </p>
 
-
-
-    </div>
+    <button ng-click="deleteData(item._id)">Remove</button>
 
   </div>
+
+</div>

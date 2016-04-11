@@ -1,9 +1,13 @@
 <h3>V Point</h3>
-  <div ng-repeat="item in vpointArray | orderBy: 'title' ">
+  <div ng-repeat="item in vpointArray.allVpoint | orderBy: 'title' ">
     <div >
       <h4>
           {{ item.title }}
       </h4>
+
+      <p>
+          {{ item.length/60 | number:1 }} minutes
+      </p>
 
       <p>
           {{ item.description }}

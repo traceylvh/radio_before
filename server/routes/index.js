@@ -8,13 +8,15 @@ var vpoint = require("../public/assets/shows/vpoint.json");
 
 //get nightfall data from json file
 router.get('/nightfall', function(req, res) {
+  // console.log(nightfall.files);
   var nightfallArray = nightfall.files;
-    // console.log("from index.js: ", nightfallArray);
+
     res.send(nightfallArray);
 });
 
 //get vpoint data from json file
 router.get('/vpoint', function(req, res) {
+  // console.log(vpoint.files);
   var vpointArray = vpoint.files;
     // console.log("from index.js: ", vpointArray);
     res.send(vpointArray);
