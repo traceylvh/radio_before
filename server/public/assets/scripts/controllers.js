@@ -1,8 +1,20 @@
+myApp.controller("DummyController", ["$scope", "SweetFactory", function($scope, SweetFactory){
+   $scope.something = SweetFactory.something;
+}]);
+
+// myApp.controller("DummyController", ["$scope", "SweetFactory", function($scope, SweetFactory){
+//    SweetFactory.something = "something awesome";
+// }]);
+
 
 myApp.controller("EpisodeController", ["$scope", "HeroService", "$http", "$location",
 function($scope, HeroService, $http, $location){
 
   var heroService = HeroService;
+  // $scope.epName = "";
+
+  //test variable
+  $scope.theUrl = heroService.theUrl;
 
   heroService.getNightfall();
   $scope.nightfallArray = heroService.nightfallData;
@@ -10,29 +22,14 @@ function($scope, HeroService, $http, $location){
   heroService.getVpoint();
   $scope.vpointArray = heroService.vpointData;
 
-  // heroService.openEpisode();
+
+  $scope.openEpisode = heroService.openEpisode;
   // $scope.episodePick = heroService.playEpisode;
+  $scope.audioPage  = heroService.audioPage;
+  $scope.epName = heroService.epName;
 
-$scope.openEpisode = function(data){
-  heroService.openEpisode(data);
-    $scope.episodePick = heroService.playEpisode;
-    console.log("in controller function", $scope.episodePick);
-  // $scope.epName = $scope.episodePick.name;
-  $scope.audioPage($scope.episodePick);
-};
 
-$scope.episodePick = heroService.playEpisode;
 
-// //redirect to audioplayer
-$scope.audioPage = function(data){
-  console.log(data, "in audiopage function");
-  if(data !== null){
-    $location.path("/audioplayer");
-    // console.log(data);
-    // $scope.epName = data;
-    console.log($scope.episodePick, "it works here");
-  };
-};
 
 //updated save fav
 var favObject = {};

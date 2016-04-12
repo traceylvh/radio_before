@@ -1,48 +1,46 @@
-myApp.factory("HeroService", ["$http", function($http){
+myApp.factory("HeroService", ["$http", "$location", function($http, $location){
     var heroData = {};
     var favoritesData = {};
     var nightfallData = [];
     var vpointData = [];
     var playEpisode = {};
+    var epName = "";
+
+    //test variable
+    var theUrl = "Nightfall_CBC_83-04-29_30_After_Sunset.mp3";
 
 
     //get data from button clicked on nightfall page
     var openEpisode = function(data){
         console.log(data);
-        playEpisode.epName = data.name;
+        playEpisode = data;
         console.log(playEpisode);
-
-      // $scope.epName = data.name;
-      // console.log($scope.epName);
-      //
-      // $scope.audioPage($scope.epName);
+        playEpisode.epName = data.name;
+        console.log(playEpisode.epName);
+        audioPage(playEpisode);
     };
 
     //redirect to audioplayer
-    // $scope.audioPage = function(data){
-    //   if(data !== null){
-    //     $location.path("/audioplayer");
-    //     // console.log(data);
-    //     // $scope.epName = data;
-    //     console.log($scope.epName, "it works here");
-    //   };
-    // };
+    var audioPage = function(data){
+      console.log(data, "in audiopage function");
+      epName = data.name;
+      console.log(epName);
+      if(data !== null){
+        $location.path("/audioplayer");
+      };
+    };
 
     var getNightfall = function() {
       $http.get('/nightfall').then(function(response){
         // console.log(response.data);
         nightfallData.allNightfall = response.data;
         // console.log(nightfallData.allNightfall);
-        // $scope.nightfallArray = results;
       });
     };
 
     var getVpoint = function() {
       $http.get('/vpoint').then(function(response){
-        // console.log(response.data);
         vpointData.allVpoint = response.data;
-        // console.log(nightfallData.allNightfall);
-        // $scope.nightfallArray = results;
       });
     };
 
@@ -84,8 +82,11 @@ myApp.factory("HeroService", ["$http", function($http){
 
 
     return {
+      theUrl: theUrl,
+
       openEpisode: openEpisode,
       playEpisode: playEpisode,
+      epName: epName,
 
       getNightfall: getNightfall,
       nightfallData: nightfallData,
@@ -107,3 +108,19 @@ myApp.factory("HeroService", ["$http", function($http){
       // episodeData: episodeData
     };
 }]);
+
+myApp.factory("SweetFactory", function(){
+   var something = "https://ia802707.us.archive.org/35/items/Nightfall-cbcRadioProgram-episodesMp3Format/Nightfall_CBC_80-10-10_15_Special_Services.mp3";
+
+   return {
+       something : something
+   };
+});
+
+// myApp.factory("SweetFactory", function(){
+//    var something = "";
+//
+//    return {
+//        something : something
+//    };
+// });

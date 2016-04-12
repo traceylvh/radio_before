@@ -29,7 +29,34 @@ myApp.config(["$routeProvider", function($routeProvider){
           templateUrl: "/assets/views/routes/audioplayer.html",
           controller: "EpisodeController"
       })
+      .when("/episode", {
+          templateUrl: "/assets/views/routes/episode.html",
+          controller: "DummyController"
+      })
       .otherwise({
           redirectTo: "/home"
       });
-}]);
+
+  }]);
+
+// myApp.filter('trustUrl', ['$sce', function ($sce) {
+//   return function(url) {
+//     return $sce.trustAsResourceUrl(url);
+//   };
+// }]);
+
+angular.module('myApp')
+  .filter('trustUrl', function ($sce) {
+    return function(url) {
+      return $sce.trustAsResourceUrl(url);
+    };
+  });
+
+
+// myApp.config(["$sceDelegateProvider", function($sceDelegateProvider){
+//     $sceDelegateProvider.resourceUrlWhitelist([
+//       // Allow same origin resource loads.
+//       'self',
+//       // Allow loading from our assets domain.  Notice the difference between * and **.
+//       'https://ia802707.us.archive.org/35/items/Nightfall-cbcRadioProgram-episodesMp3Format/**']);
+//     });
