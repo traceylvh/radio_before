@@ -4,18 +4,17 @@
 <p>Load from remote URL</p>
 
 <audio preload="auto">
-    <!-- <source src="https://ia802707.us.archive.org/35/items/Nightfall-cbcRadioProgram-episodesMp3Format/Nightfall_CBC_80-10-10_15_Special_Services.mp3"> -->
-    <source src="#">
+  <!-- <source ng-src="'{{ episode.episodeURL }}'"> -->
+    <source ng-src="{{ episode.episodeURL }}">
 
 </audio>
 
- <!-- <source ng-src="{{ 'https://ia802707.us.archive.org/35/items/Nightfall-cbcRadioProgram-episodesMp3Format/' + episode.allData | trustUrl}}"> -->
-
-    <!-- <iframe ng-src="{{ 'http://srv1.assets.example.com/' + url_asset }}"></iframe> -->
-<!-- <img ng-src={{ imageHref | trustUrl }}"> -->
-
 <!-- <p>{{ nightfallArray.allNightfall }} data name here</p> -->
-<p>something here: {{ epName }}</p>
+<h2>{{ episode.data.title }}</h2>
+<p>{{ episode.data.name }}</p>
+<p>{{ episode.data.description }}</p>
+<p> {{ episode.episodeURL }}</p>
+
 
 </div>
 

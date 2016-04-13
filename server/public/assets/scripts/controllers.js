@@ -13,6 +13,7 @@ function($scope, HeroService, $http, $location){
   var heroService = HeroService;
   // $scope.epName = "";
 
+
   //test variable
   $scope.theUrl = heroService.theUrl;
 
@@ -25,9 +26,15 @@ function($scope, HeroService, $http, $location){
 
   $scope.openEpisode = heroService.openEpisode;
   // $scope.episodePick = heroService.playEpisode;
-  $scope.audioPage  = heroService.audioPage;
-  $scope.epName = heroService.epName;
+  $scope.episode = heroService.playEpisode;
+  console.log('playEpisode ', heroService.playEpisode);
+  console.log("Episode url: ", $scope.episode.episodeURL);
 
+
+  // $scope.episodeURL = $sce.trustAsResourceUrl(heroService.playEpisode.episodeURL);
+  // $scope.episodeURL = heroService.playEpisode.episodeURL;
+
+  // console.log("Sanitized url", $scope.episodeURL);
 
 
 

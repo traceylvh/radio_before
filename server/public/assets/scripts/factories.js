@@ -5,6 +5,8 @@ myApp.factory("HeroService", ["$http", "$location", function($http, $location){
     var vpointData = [];
     var playEpisode = {};
     var epName = "";
+    var urlStart = "https://ia802707.us.archive.org/35/items/Nightfall-cbcRadioProgram-episodesMp3Format/";
+    var episodeURL = "";
 
     //test variable
     var theUrl = "Nightfall_CBC_83-04-29_30_After_Sunset.mp3";
@@ -12,23 +14,29 @@ myApp.factory("HeroService", ["$http", "$location", function($http, $location){
 
     //get data from button clicked on nightfall page
     var openEpisode = function(data){
-        console.log(data);
-        playEpisode = data;
-        console.log(playEpisode);
-        playEpisode.epName = data.name;
-        console.log(playEpisode.epName);
+        console.log('openEpisode data ', data);
+        playEpisode.data = data;
+        console.log('playEpisode object ', playEpisode);
+        console.log('playEpisode.data.name: ', playEpisode.data.name);
+        epName = playEpisode.data.name;
         audioPage(playEpisode);
+        createURL();
     };
 
     //redirect to audioplayer
     var audioPage = function(data){
-      console.log(data, "in audiopage function");
-      epName = data.name;
-      console.log(epName);
       if(data !== null){
         $location.path("/audioplayer");
       };
     };
+
+    //create URL to episode
+    var createURL = function(){
+      console.log(playEpisode.data.name);
+      // episodeURL = urlStart + playEpisode.data.name;
+      playEpisode.episodeURL = urlStart + playEpisode.data.name;
+      console.log('episodeURL ', episodeURL);
+    }
 
     var getNightfall = function() {
       $http.get('/nightfall').then(function(response){
@@ -87,6 +95,8 @@ myApp.factory("HeroService", ["$http", "$location", function($http, $location){
       openEpisode: openEpisode,
       playEpisode: playEpisode,
       epName: epName,
+      episodeURL: episodeURL,
+      createURL: createURL,
 
       getNightfall: getNightfall,
       nightfallData: nightfallData,
