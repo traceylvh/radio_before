@@ -4,8 +4,8 @@
 <p>Load from remote URL</p>
 
 <audio preload="auto">
-  <!-- <source ng-src="'{{ episode.episodeURL }}'"> -->
-    <source ng-src="{{ episode.episodeURL }}">
+  <!-- <source ng-src="'{{ episode.episodeURL }}'">  -->
+    <source ng-src="{{ trustSrc(episode.episodeURL) }}">
 
 </audio>
 
